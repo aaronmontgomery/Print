@@ -17,6 +17,26 @@ namespace Print.Tests
         }
 
         [Test]
+        public void Print_GetValues_AreEquivalent_Upper_Bound_0()
+        {
+            _expectedValues = Array.Empty<string>();
+
+            _printService = new PrintService();
+
+            _substitutions = new List<KeyValuePair<double, string>>()
+            {
+                new KeyValuePair<double, string>(3, "Aaron"),
+                new KeyValuePair<double, string>(5, "Montgomery")
+            };
+
+            _upperBound = 0;
+            
+            _actualvalues = _printService.GetValues(_upperBound, _substitutions);
+            
+            CollectionAssert.AreEquivalent(_expectedValues, _actualvalues);
+        }
+
+        [Test]
         public void Print_GetValues_AreEquivalent_Upper_Bound_5()
         {
             _expectedValues = new List<string>()
@@ -124,7 +144,7 @@ namespace Print.Tests
             {
                 actualCount++;
             }
-
+            
             Assert.That(actualCount, Is.EqualTo(maxValue));
         }
     }
