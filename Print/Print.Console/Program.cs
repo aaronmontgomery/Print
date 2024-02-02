@@ -7,7 +7,6 @@ namespace Print.Console
         static void Main()
         {
             IPrintService printService;
-            IEnumerable<string> values;
             IList<KeyValuePair<double, string>> substitutions;
             double upperBound;
             
@@ -17,10 +16,9 @@ namespace Print.Console
                 new KeyValuePair<double, string>(3, "Aaron"),
                 new KeyValuePair<double, string>(5, "Montgomery")
             };
-            
+
             upperBound = 100;
-            values = printService.GetValues(upperBound, substitutions);
-            foreach (string value in values)
+            foreach (string value in printService.GetValues(upperBound, substitutions))
             {
                 System.Console.WriteLine(value);
             }
