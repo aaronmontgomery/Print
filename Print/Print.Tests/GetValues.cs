@@ -4,7 +4,7 @@ namespace Print.Tests
 {
     public class GetValues
     {
-        private IPrintService _printService;
+        private IPrintService? _printService;
         private IEnumerable<string>? _expectedValues;
         private IEnumerable<string>? _actualvalues;
         private IList<KeyValuePair<double, string>>? _substitutions;
@@ -13,7 +13,7 @@ namespace Print.Tests
         [SetUp]
         public void Setup()
         {
-            _printService = new PrintService();
+
         }
 
         [Test]
